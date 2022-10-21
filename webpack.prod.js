@@ -15,9 +15,9 @@ module.exports = merge(common, {
   },
   optimization: {
     minimizer: [
-      new OptimizeCssAssetsPlugin(),
-      new TerserPlugin(),
-      new HtmlWebpackPlugin({
+      new OptimizeCssAssetsPlugin(), // A Webpack plugin to optimize \ minimize CSS assets.
+      new TerserPlugin(), // minify/minimize your JavaScript.
+      new HtmlWebpackPlugin({ // Simplifies creation of HTML files to serve your webpack bundles
         template: "./src/template.html",
         minify: {
           removeAttributeQuotes: true,
@@ -28,8 +28,8 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
-    new CleanWebpackPlugin()
+    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }), // Lightweight CSS extraction plugin
+    new CleanWebpackPlugin() // A webpack plugin to remove your build folder(s) before building
   ],
   module: {
     rules: [
